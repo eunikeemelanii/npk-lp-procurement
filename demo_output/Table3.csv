@@ -1,0 +1,5 @@
+Scenario,Product value (million USD),Procurement cost (million USD),Procurement cost change (%),Holding cost (million USD),Margin Z (million USD),Delta Z vs S0 (%)
+S0 Baseline,535.79,418.27,,0.0,117.52,
+S1 Procurement (perfect foresight),535.79,412.78,-1.31,2.24,120.77,2.77
+S2 Mix,536.45,417.35,-0.22,0.0,119.09,1.34
+S3 Integrated (perfect foresight),536.45,411.88,-1.53,2.24,122.33,4.09

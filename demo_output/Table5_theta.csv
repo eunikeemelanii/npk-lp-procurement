@@ -1,0 +1,10 @@
+forecast,theta,total Delta Z 2021-2024 (million USD),share of S3 bound (%)
+ma3,0.0,2.69,7.76
+ma3,0.02,7.01,20.25
+ma3,0.05,16.03,46.27
+arima,0.0,17.04,49.18
+arima,0.02,17.41,50.24
+arima,0.05,17.44,50.33
+drift3,0.0,5.22,15.06
+drift3,0.02,9.26,26.73
+drift3,0.05,17.13,49.45
