@@ -1,4 +1,5 @@
-"""Tables 3 and 5 of the paper from results3.json and results3_rolling.json (run after run_main3.py and run_rolling3.py).
+"""Tables 3 and 5 of the paper (Table 5 includes the timing-only row) from results3.json and
+results3_rolling.json (run after run_main3.py and run_rolling3.py).
 Writes Table3.csv, Table5.csv and Table5_theta.csv and prints them."""
 import json
 import pandas as pd
@@ -29,6 +30,10 @@ rows = [[y, Y[y]['Z0']/M, Y[y]['dZ3']/M, SH[y]['S1'], Y[y]['S2'], SH[y]['S3'], S
 tots = [PF1, S2T, PF3, tot('S3_naive'), tot('S3_ma3'), tot('S3_drift3'), tot('S3_arima'), TH['arima_0.02']['total']]
 rows.append(['Total (million USD)', sum(Y[y]['Z0'] for y in YRS)/M, PF3/M]+[x/M for x in tots])
 rows.append(['Share of S3 PF (%)', None, None]+[100*x/PF3 for x in tots])
+# timing part: separate rolling-horizon runs with the mix fixed at S0 (S1 with forecasts); Rule (13) with the actual mix
+timing = [PF1, None, None, tot('S1_naive'), tot('S1_ma3'), tot('S1_drift3'), tot('S1_arima'),
+          TH['arima_0.02_timing_only']['total']]
+rows.append(['Timing only (million USD)', None, None]+[None if x is None else x/M for x in timing])
 t5 = pd.DataFrame(rows, columns=cols).round(2)
 t5.to_csv('Table5.csv', index=False)
 
